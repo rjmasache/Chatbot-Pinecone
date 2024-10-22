@@ -213,8 +213,8 @@ export default function Home({
                 </div>
             ) : assistantExists ? (
                 <div className="w-full max-w-6xl xl:max-w-7xl">
-                    <h1 className="text-2xl font-bold mb-4 text-indigo-900 dark:text-indigo-100">
-                        <a
+                    <h1 className="flex items-center text-2xl font-bold mb-4 text-[#003f72] dark:text-[#eaab00]">
+                        {/* <a
                             href="https://www.pinecone.io/blog/pinecone-assistant/"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -223,11 +223,28 @@ export default function Home({
                             Pinecone Assistant
                         </a>
                         : {assistantName}{" "}
-                        <span className="text-green-500">●</span>
+                        <span className="text-green-500">●</span> */}
+                        Asistente virtual UTPL
+                        <svg
+                            width="28"
+                            height="28"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="ml-2"
+                        >
+                            <path
+                                d="M15 12C14.2005 12.6224 13.1502 13 12 13C10.8498 13 9.79952 12.6224 9 12M9 8.01953V8M15 8.01953V8M3 20.7929V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V15C21 16.1046 20.1046 17 19 17H8.41421C8.149 17 7.89464 17.1054 7.70711 17.2929L3.85355 21.1464C3.53857 21.4614 3 21.2383 3 20.7929Z"
+                                stroke={darkMode ? "#000000" : "#FFFFFF"}
+                                stroke-width="1"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            ></path>
+                        </svg>
                     </h1>
                     <div className="flex flex-col gap-4">
                         <div className="w-full">
-                            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-4 h-[calc(100vh-500px)] overflow-y-auto">
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-5 overflow-y-auto h-[calc(100vh-20rem)]">
                                 {messages.map((message, index) => (
                                     <div
                                         key={index}
@@ -252,9 +269,24 @@ export default function Home({
                                                 }`}
                                             >
                                                 {message.role === "user" ? (
-                                                    <span className="text-2xl">
-                                                        👤
-                                                    </span>
+                                                    // <span className="text-2xl">
+                                                    //     👤
+                                                    // </span>
+                                                    <svg
+                                                        stroke="none"
+                                                        fill={
+                                                            darkMode
+                                                                ? "white"
+                                                                : "black"
+                                                        }
+                                                        stroke-width="0"
+                                                        viewBox="0 0 16 16"
+                                                        height="20"
+                                                        width="20"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                    >
+                                                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"></path>
+                                                    </svg>
                                                 ) : (
                                                     <a
                                                         href="https://www.pinecone.io/blog/pinecone-assistant/"
@@ -270,9 +302,9 @@ export default function Home({
                                                 )}
                                             </div>
                                             <span
-                                                className={`inline-block p-2 rounded-lg ${
+                                                className={`inline-block py-2 px-4 rounded-lg ${
                                                     message.role === "user"
-                                                        ? "bg-indigo-500 text-white"
+                                                        ? "bg-[#003f72] text-white"
                                                         : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                                                 } max-w-[80%] break-words`}
                                             >
@@ -343,16 +375,16 @@ export default function Home({
                                     type="text"
                                     value={input}
                                     onChange={e => setInput(e.target.value)}
-                                    className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                                    placeholder="Type your message..."
+                                    className="flex-grow py-2 px-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#003f72] mr-2 dark:bg-[#2D3B45] dark:focus:ring-[#eaab00] dark:border-none dark:text-white"
+                                    placeholder="Escribe tu mensaje"
                                     disabled={isStreaming}
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-indigo-500 text-white p-2 rounded-r-lg hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                    className="bg-[#003f72] text-white px-4 py-2 rounded-lg hover:bg-[#003f72] focus:outline-none focus:ring-2 focus:ring-[#003f72]"
                                     disabled={isStreaming}
                                 >
-                                    {isStreaming ? "Streaming..." : "Send"}
+                                    {isStreaming ? "Streaming..." : "Enviar"}
                                 </button>
                             </form>
                             {error && (
@@ -428,7 +460,7 @@ export default function Home({
                     </div>
                 </div>
             )}
-            <div className="mt-8 text-sm text-gray-500 flex space-x-4">
+            {/* <div className="mt-8 text-sm text-gray-500 flex space-x-4">
                 <a
                     href="https://www.pinecone.io/blog/pinecone-assistant/"
                     target="_blank"
@@ -445,7 +477,7 @@ export default function Home({
                 >
                     🤖 Create your own Pinecone Assistant today
                 </a>
-            </div>
+            </div> */}
         </main>
     );
 }
