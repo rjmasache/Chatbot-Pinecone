@@ -244,7 +244,7 @@ export default function Home({
                     </h1>
                     <div className="flex flex-col gap-4">
                         <div className="w-full">
-                            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-5 overflow-y-auto h-[calc(100vh-10rem)]">
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg mb-5 overflow-y-auto h-[calc(100vh-15rem)]">
                                 {messages.map((message, index) => (
                                     <div
                                         key={index}
